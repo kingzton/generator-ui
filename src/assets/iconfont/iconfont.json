@@ -1,0 +1,30 @@
+{
+  "id": "3758022",
+  "name": "江南山水电",
+  "font_family": "jnssd",
+  "css_prefix_text": "jnssd-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1305473",
+      "name": "配置管理",
+      "font_class": "peizhi",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "4111811",
+      "name": "代码",
+      "font_class": "code",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "7157999",
+      "name": "自动管理",
+      "font_class": "auto",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    }
+  ]
+}

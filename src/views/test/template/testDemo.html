@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IE</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
+    <!--<script src="es5-shim.min.js"></script>
+    <script src="es5-sham.min.js"></script>
+    <script src="json3.min.js"></script>-->
+    <script src="template-web.js"></script>
+</head>
+
+<body>
+<div id="content"></div>
+<div id="demo"></div>
+<script id="test" type="text/html">
+        {{ each list item i }}
+        /** {{ item[3] }} */ <br/>
+        @ApiModelProperty(value = "{{ item[3] }}", required = {{ item[2] === '是'? 'true' : 'false' }}) <br/>
+        private {{ item[1] }} {{ item[0] }};
+        <br/>
+        {{ /each   }}
+</script>
+
+<script>
+    var data = {
+        title: '基本例子',
+        isAdmin: true,
+        list: [
+            [
+                "authCode",
+                "String",
+                "是",
+                "授权码"
+            ],
+            [
+                "decodeStr",
+                "String",
+                "是",
+                "参数加密"
+            ],
+            [
+                "hospitalCode",
+                "String",
+                "是",
+                "医院编号"
+            ],
+            [
+                "barcode",
+                "String",
+                "是",
+                "医废条码"
+            ],
+            [
+                "collectTime",
+                "String",
+                "是",
+                "收集时间"
+            ],
+            [
+                "articleQuality",
+                "String",
+                "是",
+                "医废重量"
+            ],
+            [
+                "organizationCode",
+                "String",
+                "是",
+                "科室编码"
+            ],
+            [
+                "organizationName",
+                "String",
+                "是",
+                "科室名称"
+            ],
+            [
+                "transferPerson",
+                "String",
+                "是",
+                "交接护士"
+            ],
+            [
+                "collectionPerson",
+                "String",
+                "是",
+                "收集人"
+            ],
+            [
+                "collectionNurse",
+                "String",
+                "是",
+                "收集护士"
+            ],
+            [
+                "wasteType",
+                "String",
+                "是",
+                "医废类型 1"
+            ],
+            [
+                "carNumber",
+                "String",
+                "是",
+                "医废收集设备编码"
+            ],
+            [
+                "batchNo",
+                "String",
+                "否",
+                "批次号"
+            ]
+        ]
+    };
+    var render = template.compile('{{if isAdmin}}\n' +
+        '\n' +
+        '    <h1>{{ title }}</h1>\n' +
+        '    <ul>\n' +
+        '        {{ each list value i }}\n' +
+        '        <li>索引 {{ i + 1 }} ：{{ value }}</li>\n' +
+        '        {{ /each   }}\n' +
+        '    </ul>\n' +
+        '\n' +
+        '    {{/if}}\n' +
+        '    {{$data}}');
+    var demo = render(data);
+
+    document.getElementById('demo').innerHTML = demo;
+
+    var html = template('test', data);
+    document.getElementById('content').innerHTML = html;
+</script>
+</body>
+</html>
